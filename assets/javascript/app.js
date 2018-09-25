@@ -76,11 +76,15 @@ var myQuestions = [
 
 
 $("#start").on("click", function() {
-    alert("hello");
-$("#start").hide();
-var Questiondiv = $("<div>");
-Questiondiv.addClass("Quesdiv");
-var Title = $("<h1>");
-Questiondiv.prepend(Title);
-Title.addClass("Title");
+    console.log("Clicked");
+
+$("#start").remove();
+for(var i=0; i< myQuestions.length; i++) {
+    $("#wrapper2").append('<h2>'+ myQuestions[i].question + '</h2>');
+        for(var j=0; j< myQuestions[j].answers.length; j++) {
+            $("#wrapper2").append("<input type='radio' name='question- "+i+"' value='"+myQuestions[i].answers[j]+"'>"+myQuestions[i].answers[j]);
+        }
+}
+
+
 });
