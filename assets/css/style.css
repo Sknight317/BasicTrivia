@@ -1,9 +1,41 @@
-.Title {
+body{
+    background-image: url("../images/antique-blackboard-blank-269481\ \(1\).jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    position: relative;
+}
+.Title, h1 {
     font-size: 70px;
     font-weight: 800;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: white;
+    position: absolute;
+    right: 400px;
+    top: 75px;
+    border-radius: 20px;
 }
 
 .Quesdiv {
     background-color: blueviolet;
+}
+#start {
+    background-color: lavender;
+    width: 200px;
+    color: purple;
+    font-size: 20px;
+    border-radius: 30px;
+    margin: 10px 40px 10px 0px;
+    padding: 10px 10px;
+    position: absolute;
+    right: 550px;
+    top: 400px;
+}
+#start:hover {
+    cursor: pointer;
+    background-color:rgb(141, 141, 158);
+}
+#start:focus {
+    outline: 0;
 }
