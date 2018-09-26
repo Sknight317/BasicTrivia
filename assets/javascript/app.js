@@ -76,15 +76,136 @@ var myQuestions = [
 
 
 $("#start").on("click", function() {
+    timer = setInterval(countdown, 1000);
+    $("#wrapper2").prepend('<h2>Time Remaining: <span id="count">120</span> Seconds</h2>');
     console.log("Clicked");
-
-$("#start").remove();
-for(var i=0; i< myQuestions.length; i++) {
-    $("#wrapper2").append('<h2>'+ myQuestions[i].question + '</h2>');
-        for(var j=0; j< myQuestions[j].answers.length; j++) {
-            $("#wrapper2").append("<input type='radio' name='question- "+i+"' value='"+myQuestions[i].answers[j]+"'>"+myQuestions[i].answers[j]);
+    $("#start").remove();
+    for(var i=0; i< myQuestions.length; i++) {
+        $("#wrapper2").append('<h2>'+ myQuestions[i].question + '</h2>');
+            for(var j=0; j< myQuestions[j].answers.length; j++) {
+                $("#wrapper2").append("<input type='radio' name='question"+i+"' value='"+myQuestions[i].answers[j]+"'>"+myQuestions[i].answers[j]);
+            }
         }
+        $("#wrapper2").append('<br><br><button id="Done">Done</button>');
+});
+
+$(document).on('click', '#Done', function() {
+    gameOver();
+});
+
+var right = 0;
+var wrong = 0;
+var counter = 20;
+var timer;
+
+function countdown() {
+    counter--
+    $("#count").html(counter);
+    if (counter <= 0) {
+        console.log("Time's up");
+        clearInterval(timer);
+        gameOver();
+    }
 }
 
+function start() {
+    timer = setInterval(countdown, 1000);
+    $("#wrapper2").prepend('<h2>Time Remaining: <span id="count">120</span> Seconds</h2>');
+    
+    $("#start").remove();
+for(var i=0; i< myQuestions.length; i++) {
+    $("#wrapper2").append('<h2 id="ques">'+ myQuestions[i].question + '</h2>');
+        for(var j=0; j< myQuestions[j].answers.length; j++) {
+            $("#wrapper2").append("<input type='radio' name='question"+i+"' value='"+myQuestions[i].answers[j]+"'>"+myQuestions[i].answers[j]);
+        }
+    }
+    $("#wrapper2").append('<br><br><button id="Done">Done</button>');
+    
+}
 
-});
+function gameOver() {
+  
+    
+    var useranswer = $('input[type="radio"]:checked').val();
+    
+    $('input[name="question0"]:checked').each(function(){
+    if($(this).val() === myQuestions[0].correctAnswer) {
+        console.log(myQuestions[0].correctAnswer);
+        right++; 
+    }   else  {
+        wrong++;  
+    }
+    });
+    $('input[name="question1"]:checked').each(function(){
+        if($(this).val() === myQuestions[1].correctAnswer) {
+            console.log(myQuestions[1].correctAnswer);
+            right++; 
+        }   else  {
+            wrong++;  
+        }
+        });
+    $('input[name="question2"]:checked').each(function(){
+    if($(this).val() === myQuestions[2].correctAnswer) {
+        console.log(myQuestions[2].correctAnswer);
+        right++; 
+    }   else  {
+        wrong++;  
+    }
+    });
+    $('input[name="question3"]:checked').each(function(){
+        if($(this).val() === myQuestions[3].correctAnswer) {
+            console.log(myQuestions[3].correctAnswer);
+            right++; 
+        }   else  {
+            wrong++;  
+        }
+        });
+    $('input[name="question4"]:checked').each(function(){
+            if($(this).val() === myQuestions[4].correctAnswer) {
+                console.log(myQuestions[4].correctAnswer);
+                right++; 
+            }   else  {
+                wrong++;  
+            }
+            });
+    $('input[name="question5"]:checked').each(function(){
+    if($(this).val() === myQuestions[5].correctAnswer) {
+        console.log(myQuestions[5].correctAnswer);
+        right++; 
+    }   else  {
+        wrong++;  
+    }
+    });
+    $('input[name="question6"]:checked').each(function(){
+        if($(this).val() === myQuestions[6].correctAnswer) {
+            console.log(myQuestions[6].correctAnswer);
+            right++; 
+        }   else  {
+            wrong++;  
+        }
+        });
+    $('input[name="question7"]:checked').each(function(){
+    if($(this).val() === myQuestions[7].correctAnswer) {
+        console.log(myQuestions[7].correctAnswer);
+        right++; 
+    }   else  {
+        wrong++;  
+    }
+    });
+
+   
+    showResults();
+    
+};
+
+function showResults() {
+    clearInterval(timer);
+    $("#wrapper2 h2").remove();
+    
+    $("#wrapper2").html('<h2>All Done!</h2>');
+    $("#wrapper2").append("<h3>Correct: " +right+ "</h3>");
+    $("#wrapper2").append("<h3>Wrong: " +wrong+ "</h3>");
+    var answered = right + wrong;
+    var noaswer = myQuestions.length - answered;
+    $("#wrapper2").append("<h3>Unanswered: " +noaswer+ "</h3>");
+}
