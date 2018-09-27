@@ -20,7 +20,7 @@ body{
 .Quesdiv {
     background-color: blueviolet;
 }
-#start, #Done {
+#Done {
     background-color: rgb(226, 207, 207);   
     width: 200px;
     color:black;
@@ -31,6 +31,18 @@ body{
     text-align: center; 
     font-family: 'Monofett', cursive; 
 }
+#start {
+    background-color: rgb(226, 207, 207);   
+    width: 200px;
+    color:black;
+    font-size: 35px;
+    border-radius: 30px;
+    margin: 10px 40px 10px 0px;
+    padding: 10px 10px;
+    text-align: center;
+    font-family: 'Monofett', cursive;
+    
+}
 
 #start:hover, #Done:hover {
     cursor: pointer;
@@ -40,14 +52,14 @@ body{
 #start:focus, #Done:focus {
     outline: 0;
 }
-#start span {
+#start span, #Done span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
   }
   
-  #start span:after {
+  #start span:after, #Done span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -56,11 +68,11 @@ body{
     transition: 0.5s;
   }
   
-  #start:hover span {
+  #start:hover span, #Done:hover span {
     padding-right: 25px;
   }
   
-  #start:hover span:after {
+  #start:hover span:after, #Done:hover span:after {
     opacity: 1;
     right: 0;
     
@@ -72,6 +84,9 @@ body{
     margin: 0 auto;
     padding: 20px;
     border-radius: 20px;
+    position: relative;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
 }
 #wrapper {
    
@@ -97,3 +112,4 @@ body{
     margin: auto;
     
 }
+

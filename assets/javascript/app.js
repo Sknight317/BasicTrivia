@@ -119,7 +119,7 @@ for(var i=0; i< myQuestions.length; i++) {
             $("#wrapper2").append("<input type='radio' name='question"+i+"' value='"+myQuestions[i].answers[j]+"'>"+myQuestions[i].answers[j]);
         }
     }
-    $("#wrapper2").append('<br><br><button id="Done">Done</button>');
+    $("#wrapper2").append('<br><br><button id="Done"><span>Done</span></button>');
     
 }
 
