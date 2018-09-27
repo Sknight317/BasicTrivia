@@ -2,15 +2,14 @@
     box-sizing: border-box;
 }
 body{
-    background-image: url("../images/antique-blackboard-blank-269481\ \(1\).jpg");
-    background-repeat:no-repeat;
-    background-size:cover;
-    
+    position: relative;
+    background-color: rgb(226, 207, 207);
 }
+
 .Title, h1 {
     font-size: 70px;
     font-weight: 800;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Monofett', cursive;
     text-align: center;
     margin-bottom: 30px;
     background-color: white;
@@ -21,34 +20,80 @@ body{
 .Quesdiv {
     background-color: blueviolet;
 }
-#start {
-    background-color: lavender;
+#start, #Done {
+    background-color: rgb(226, 207, 207);   
     width: 200px;
-    color: purple;
-    font-size: 20px;
+    color:black;
+    font-size: 35px;
     border-radius: 30px;
     margin: 10px 40px 10px 0px;
     padding: 10px 10px;
-    text-align: center;  
+    text-align: center; 
+    font-family: 'Monofett', cursive; 
 }
 
-#start:hover {
+#start:hover, #Done:hover {
     cursor: pointer;
-    background-color:rgb(141, 141, 158);
+    background-color: rgb(136, 127, 127);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
-#start:focus {
+#start:focus, #Done:focus {
     outline: 0;
 }
+#start span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  #start span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  #start:hover span {
+    padding-right: 25px;
+  }
+  
+  #start:hover span:after {
+    opacity: 1;
+    right: 0;
+    
+  }
 #wrapper2 {
     background-color: white;
     font-size: 12px;
     width: 600px;
     margin: 0 auto;
     padding: 20px;
-    
+    border-radius: 20px;
 }
 #wrapper {
-    background-color: blueviolet;
+   
     width: 600px;
-    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+    top: 75px;
+    
+    
+}
+.chalk-image {
+   background-image: url("../images/antique-blackboard-blank-269481\ \(1\).jpg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    height: 600px;
+    width: 800px;
+    background-position: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+    
 }
