@@ -95,7 +95,7 @@ $(document).on('click', '#Done', function() {
 
 var right = 0;
 var wrong = 0;
-var counter = 20;
+var counter = 120;
 var timer;
 
 function countdown() {
@@ -110,7 +110,7 @@ function countdown() {
 
 function start() {
     timer = setInterval(countdown, 1000);
-    $("#wrapper2").prepend('<h2>Time Remaining: <span id="count">120</span> Seconds</h2>');
+    $("#wrapper2").prepend('<h2 id="count">Time Remaining: <span>120</span> Seconds</h2>');
     
     $("#start").remove();
 for(var i=0; i< myQuestions.length; i++) {
@@ -202,10 +202,10 @@ function showResults() {
     clearInterval(timer);
     $("#wrapper2 h2").remove();
     
-    $("#wrapper2").html('<h2>All Done!</h2>');
-    $("#wrapper2").append("<h3>Correct: " +right+ "</h3>");
-    $("#wrapper2").append("<h3>Wrong: " +wrong+ "</h3>");
+    $("#wrapper2").html('<h2 class="done">All Done!</h2>');
+    $("#wrapper2").append('<h3 class="done">Correct: ' +right+ '</h3>');
+    $("#wrapper2").append('<h3 class="done">Wrong: ' +wrong+ '</h3>');
     var answered = right + wrong;
     var noaswer = myQuestions.length - answered;
-    $("#wrapper2").append("<h3>Unanswered: " +noaswer+ "</h3>");
+    $("#wrapper2").append('<h3 class="done">Unanswered: ' +noaswer+ '</h3>');
 }
