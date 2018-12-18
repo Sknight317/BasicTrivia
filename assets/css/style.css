@@ -1,10 +1,20 @@
 * {
     box-sizing: border-box;
 }
-body{
+html {
+    background-image: url("../images/pexels-photo-48604-light.jpeg");
+    /* filter: blur(8px); */
+    /* -webkit-filter: blur(8px); */
     position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: rgb(226, 207, 207);
-}
+    height: 100%;
+  }
+
+    
+
 
 .Title, h1 {
     font-size: 70px;
@@ -13,11 +23,12 @@ body{
     text-align: center;
     margin-bottom: 30px;
     background-color: white;
-    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 20px;
 }
 
 #Done {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: rgb(226, 207, 207);   
     width: 200px;
     color:black;
@@ -28,8 +39,13 @@ body{
     text-align: center; 
     font-family: 'Monofett', cursive; 
 }
+.start-div, .done-div, .replay-div {
+    display: flex;
+    justify-content: center;
+}
 #start {
-    background-color: rgb(226, 207, 207);   
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgb(226, 207, 207); 
     width: 200px;
     color:black;
     font-size: 35px;
@@ -40,11 +56,23 @@ body{
     font-family: 'Monofett', cursive;
     
 }
+.replay {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgb(226, 207, 207); 
+    width: 200px;
+    color:black;
+    font-size: 35px;
+    border-radius: 30px;
+    padding: 10px 10px;
+    text-align: center;
+    font-family: 'Monofett', cursive;
+}
 
-#start:hover, #Done:hover {
+#start:hover, #Done:hover, .replay:hover {
     cursor: pointer;
     background-color: rgb(136, 127, 127);
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    outline: none;
 }
 #start:focus, #Done:focus {
     outline: 0;
@@ -75,6 +103,7 @@ body{
     
   }
 #wrapper2 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: white;
     width: 600px;
     margin: 0 auto;
@@ -97,6 +126,7 @@ body{
 }
 .chalk-image {
    background-image: url("../images/antique-blackboard-blank-269481\ \(1\).jpg");
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-repeat: no-repeat;
     background-size: cover; 
     height: 600px;
@@ -106,7 +136,7 @@ body{
     right: 0;
     left: 0;
     margin: auto;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .done {
@@ -140,10 +170,10 @@ input[type="radio"]:hover,
 }
     
 input[type="radio"]:checked {
-    background:  rgb(146, 26, 26);
+    background:  rgb(136, 127, 127);
     box-shadow:
     inset 0 0 0 .4em white,
-    0 0 0 .3em rgb(146, 26, 26);
+    0 0 0 .3em rgb(136, 127, 127);
 } 
   
 input[type="radio"]:focus { outline: 0; }

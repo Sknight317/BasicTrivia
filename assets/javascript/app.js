@@ -74,25 +74,31 @@ var myQuestions = [
     value: "1",
 }]
 
-
+//onclick function to start the game
 $("#start").on("click", function() {
+    //Creating a timer to countdown in seconds
     timer = setInterval(countdown, 1000);
     $("#wrapper2").prepend('<h2>Time Remaining: <span id="count">120</span> Seconds</h2>');
     console.log("Clicked");
     $("#start").remove();
+    // for loop to display the questions in array
     for(var i=0; i< myQuestions.length; i++) {
         $("#wrapper2").append('<h2>'+ myQuestions[i].question + '</h2>');
             for(var j=0; j< myQuestions[j].answers.length; j++) {
+                // Creating a radio button for each question in the array
                 $("#wrapper2").append("<input type='radio' name='question"+i+"' value='"+myQuestions[i].answers[j]+"'>"+myQuestions[i].answers[j]);
             }
         }
-        $("#wrapper2").append('<br><br><button id="Done">Done</button>');
+        // Showing the done button 
+        $("#wrapper2").append('<br><br><div class="done-div"><button id="Done">Done</button></div>');
 });
 
+// When the done button is clicked, end the game.
 $(document).on('click', '#Done', function() {
-    gameOver();
+    PlayGame();
 });
 
+// Variables for questions and timer
 var right = 0;
 var wrong = 0;
 var counter = 120;
@@ -104,13 +110,14 @@ function countdown() {
     if (counter <= 0) {
         console.log("Time's up");
         clearInterval(timer);
-        gameOver();
+        PlayGame();
     }
 }
 
+// Function to start the game
 function start() {
     timer = setInterval(countdown, 1000);
-    $("#wrapper2").prepend('<h2 id="count">Time Remaining: <span>120</span> Seconds</h2>');
+    $("#wrapper2").prepend('<h2 id="count">Time Remaining: <span id="count-span">120</span> Seconds</h2>');
     
     $("#start").remove();
 for(var i=0; i< myQuestions.length; i++) {
@@ -123,12 +130,10 @@ for(var i=0; i< myQuestions.length; i++) {
     
 }
 
-function gameOver() {
-  
-    
-    var useranswer = $('input[type="radio"]:checked').val();
+function PlayGame() {
     
     $('input[name="question0"]:checked').each(function(){
+    // If the checked button for this question number quals the correct answer..
     if($(this).val() === myQuestions[0].correctAnswer) {
         console.log(myQuestions[0].correctAnswer);
         right++; 
@@ -208,4 +213,23 @@ function showResults() {
     var answered = right + wrong;
     var noaswer = myQuestions.length - answered;
     $("#wrapper2").append('<h3 class="done">Unanswered: ' +noaswer+ '</h3>');
+    
+    $("#wrapper2").append('<div class="replay-div"><button class="replay" onclick="reset()">Play Again</button></div>')
+}
+
+function reset() {
+    
+    clearInterval(timer);
+    $("#wrapper2 .replay").remove();
+    $("#wrapper2 .done").remove();
+    var right = 0;
+    var wrong = 0;
+
+   start();
+    countdown();
+    
+       
+       
+    
+    
 }
