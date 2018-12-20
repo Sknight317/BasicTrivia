@@ -204,8 +204,9 @@ function PlayGame() {
 };
 
 function showResults() {
+    
     clearInterval(timer);
-    $("#wrapper2 h2").remove();
+    $("#wrapper2 h2").empty();
     
     $("#wrapper2").html('<h2 class="done">All Done!</h2>');
     $("#wrapper2").append('<h3 class="done">Correct: ' +right+ '</h3>');
@@ -214,22 +215,20 @@ function showResults() {
     var noaswer = myQuestions.length - answered;
     $("#wrapper2").append('<h3 class="done">Unanswered: ' +noaswer+ '</h3>');
     
-    $("#wrapper2").append('<div class="replay-div"><button class="replay" onclick="reset()">Play Again</button></div>')
+    $("#wrapper2").append('<div class="replay-div"><button class="replay" onclick="reset()">Play Again</button></div>');
+    if (right === 8) {
+        $("#wrapper2").append('<h3 class="done" id="perfect">You got a Perfect Score!!</h3>');
+    }
 }
 
 function reset() {
-    
+   $("#wrapper2 .replay").remove();
+    $("#wrapper2 .done").remove(); 
+    start();
+    var timer = setInterval(countdown, 1000);
     clearInterval(timer);
-    $("#wrapper2 .replay").remove();
-    $("#wrapper2 .done").remove();
-    var right = 0;
-    var wrong = 0;
-
-   start();
+    counter = 120;
     countdown();
-    
-       
-       
-    
-    
-}
+    right = 0;
+    wrong = 0;
+    }
